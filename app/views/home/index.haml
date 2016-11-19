@@ -19,7 +19,7 @@
       - if current_user.solution_file_stored? && current_user.test_file_stored?
         = link_to 'Do my results', result_path, class: 'btn btn-danger'
         - if current_user.last_runned
-          = link_to "Get me my results from #{current_user.last_runned}", "/#{current_user.uid}/index.html", class: 'btn btn-success'
+          = link_to "Get me my results from #{current_user.last_runned}", "reports/#{current_user.uid}/index.html", class: 'btn btn-success'
         - else
           = link_to 'Running...', '#', class: 'btn btn-warning'
       - else

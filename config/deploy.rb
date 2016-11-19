@@ -9,11 +9,12 @@ set :repo_url, 'git@github.com:adamgyulavari/gf-tester.git'
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '~/apps/gf-tester'
+set :deploy_user, 'deployer'
 
 set :pty, true
 
 set :rbenv_type, :local
-set :rbenv_ruby, '2.2.3'
+set :rbenv_ruby, '2.3.0'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
