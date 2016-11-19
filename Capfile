@@ -16,12 +16,21 @@ require "capistrano/deploy"
 #   https://github.com/capistrano/passenger
 #
 # require 'capistrano/rvm'
-# require 'capistrano/rbenv'
+require 'capistrano/rbenv'
 # require 'capistrano/chruby'
-# require 'capistrano/bundler'
-# require 'capistrano/rails/assets'
-# require 'capistrano/rails/migrations'
+require 'capistrano/bundler'
+require 'capistrano/rails/assets'
+require 'capistrano/rails/migrations'
 # require 'capistrano/passenger'
+
+require 'capistrano/cookbook/check_revision'
+require 'capistrano/cookbook/compile_assets_locally'
+require 'capistrano/cookbook/logs'
+require 'capistrano/cookbook/nginx'
+require 'capistrano/cookbook/restart'
+require 'capistrano/cookbook/setup_config'
+
+require 'capistrano/rails/console'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }

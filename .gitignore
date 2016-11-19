@@ -13,7 +13,9 @@
 /config/database.yml
 /config/secrets.yml
 /public/system
-/public/reports
+/public/reports/*
+!/public/reports/css/
+!/public/reports/js/
 
 # Ignore all logfiles and tempfiles.
 /log/*
