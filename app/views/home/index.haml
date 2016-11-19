@@ -1,0 +1,37 @@
+.container
+  %h1= "Welcome, #{current_user.name}"
+  .col-md-6
+    - if current_user
+      = form_for current_user, html: { class: 'form' } do |f|
+        .form-group
+          = f.label :solution_file, "Solution file#{' currently: ' + current_user.solution_file.name if current_user.solution_file_stored?}"
+          .input-group
+            = f.file_field :solution_file, class: 'form-control'
+            %span.input-group-btn
+              = f.button 'Upload!', type: :submit, data: { disable_with: 'Loading...' }, class: 'btn btn-accent'
+      = form_for current_user, html: { class: 'form' } do |f|
+        .form-group
+          = f.label :test_file, "Test file#{' currently: ' + current_user.test_file.name if current_user.test_file_stored?}"
+          .input-group
+            = f.file_field :test_file, class: 'form-control'
+            %span.input-group-btn
+              = f.button 'Upload!', type: :submit, data: { disable_with: 'Loading...' }, class: 'btn btn-accent'
+      - if current_user.solution_file_stored? && current_user.test_file_stored?
+        = link_to 'Do my results', result_path, class: 'btn btn-danger'
+        - if current_user.last_runned
+          = link_to "Get me my results from #{current_user.last_runned}", "/#{current_user.uid}/index.html", class: 'btn btn-success'
+        - else
+          = link_to 'Running...', '#', class: 'btn btn-warning'
+      - else
+        %p Upload your Solution and Test file!
+
+    - else
+      = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path
+  .col-md-6
+    %h3 Toplist
+    %table.table.table-striped.table-hover
+      %tr
+        %th #
+        %th Name
+        %th Success
+      = render @users
