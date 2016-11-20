@@ -29,6 +29,7 @@ require 'capistrano/cookbook/logs'
 require 'capistrano/cookbook/nginx'
 require 'capistrano/cookbook/restart'
 require 'capistrano/cookbook/setup_config'
+require 'capistrano/sidekiq'
 
 require 'capistrano/rails/console'
 

@@ -11,12 +11,12 @@ set :repo_url, 'git@github.com:adamgyulavari/gf-tester.git'
 set :deploy_to, '~/apps/gf-tester'
 set :deploy_user, 'deployer'
 
-set :pty, true
+set :pty, false
 
 set :rbenv_type, :local
 set :rbenv_ruby, '2.3.0'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_map_bins, %w{rake gem bundle ruby rails sidekiq sidekiqctl}
 
 # how many old releases do we want to keep
 set :keep_releases, 5

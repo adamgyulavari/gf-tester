@@ -24,12 +24,15 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
 gem 'haml'
 
 gem 'devise'
 gem 'omniauth-oauth2'
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2'
 gem 'formtastic-bootstrap'
+gem 'rails-timeago'
 
 gem 'unicorn'
 gem 'sidekiq'
@@ -44,6 +47,7 @@ gem 'capistrano-bundler'
 gem 'capistrano-rbenv'
 gem 'capistrano-rails-console'
 gem 'capistrano-cookbook', require: false, group: :development
+gem 'capistrano-sidekiq', group: :development
 
 gem 'dragonfly'
 
