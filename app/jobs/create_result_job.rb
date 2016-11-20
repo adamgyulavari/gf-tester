@@ -2,7 +2,7 @@ class CreateResultJob < ApplicationJob
   queue_as :default
 
   def perform(user)
-    FileUtils.cp(user.solution_file.path, Rails.application.secrets.solution_directory + '/Solution.java')
+    FileUtils.cp(user.solution_file.path, Rails.application.secrets.solution_directory + '/WordToolbox.java')
     FileUtils.cp(user.test_file.path, Rails.application.secrets.test_directory + '/' + user.test_file.name)
     system("cd #{Rails.application.secrets.test_directory} && ./gradlew test")
     FileUtils.cp_r(Rails.application.secrets.report_directory, Rails.application.root.to_s + '/public/reports/' + user.uid)

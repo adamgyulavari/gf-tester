@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validate :files
 
-  # validates :solution_file_name, inclusion: { in: ['Solution.java'], message: 'should be named as Solution.java' }, unless: 'solution_file_uid.nil?'
+  # validates :solution_file_name, inclusion: { in: ['WordToolbox.java'], message: 'should be named as WordToolbox.java' }, unless: 'solution_file_uid.nil?'
   # validates :test_file_name, format: { with: /\ATest[a-zA-Z]+.java\z/, message: 'should be named as Test*.java' }, unless: 'test_file_uid.nil?'
 
   def self.from_omniauth(auth)
@@ -21,7 +21,7 @@ class User < ApplicationRecord
   private
 
   def files
-    errors.add(:solution_file, 'should be named as Solution.java') if solution_file_name && solution_file_name != 'Solution.java'
+    errors.add(:solution_file, 'should be named as WordToolbox.java') if solution_file_name && solution_file_name != 'WordToolbox.java'
     errors.add(:test_file, 'should be named as Test*.java') if test_file_name && test_file_name.match(/\ATest[a-zA-Z]+.java\z/).nil?
   end
 
