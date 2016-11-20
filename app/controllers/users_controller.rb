@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def update
     current_user.update(user_params)
-    redirect_to root_path
+    redirect_to root_path, alert: current_user.errors.full_messages
   end
 
   private
