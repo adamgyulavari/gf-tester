@@ -25,13 +25,18 @@
               %span.input-group-btn
                 = f.button 'Upload', type: :submit, data: { disable_with: 'Loading...' }, class: 'btn btn-primary'
         - if current_user.solution_file_stored? && current_user.test_file_stored?
-          = link_to 'Do my results', result_path, class: 'btn btn-primary btn-block'
+          = link_to result_path, class: 'btn btn-primary btn-block' do
+            = fa_icon 'check-square-o'
+            Do my results
           - if current_user.last_runned
             = link_to "reports/#{current_user.uid}/index.html", class: 'btn btn-primary btn-block' do
+              = fa_icon 'tasks'
               Get me my results from
               = timeago_tag current_user.last_runned
           - else
-            = link_to 'Running...', '#', class: 'btn btn-warning btn-block'
+            = link_to '#', class: 'btn btn-warning btn-block' do
+              = fa_icon 'spinner'
+              Running...
         - else
           .alert.alert-warning
             Upload your Solution and Test file first.
