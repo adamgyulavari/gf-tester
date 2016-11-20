@@ -24,7 +24,9 @@
                 %code Solution.java
                 with the
                 %code Solution
-                class inside.
+                class inside. Your solution file must not contain any
+                %code package
+                at the top (eg. package com.greenfox.aze;).
               .input-group
                 = f.file_field :solution_file, class: 'form-control'
                 %span.input-group-btn
@@ -38,6 +40,9 @@
                 %strong test file's
                 name should start with Test and it should contain your name. For example:
                 %code TestAze.java
+                Your test file must not contain any
+                %code package
+                at the top (eg. package com.greenfox.aze;).
               .input-group
                 = f.file_field :test_file, class: 'form-control'
                 %span.input-group-btn
