@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @users = User.order('running_tests DESC').all
+    @users = User.where.not(running_tests: nil).order('running_tests DESC').all
   end
 
   def result
