@@ -19,11 +19,11 @@
             .well
               %p
                 Your
-                %strong solution file
+                %strong countas file
                 should be named as
-                %code WordToolbox.java
+                %code CountAs.java
                 with the
-                %code WordToolbox
+                %code CountAs
                 class inside. Your solution file must not contain any
                 %code package
                 at the top (eg. package com.greenfox.aze;).
@@ -33,14 +33,16 @@
                   = f.button 'Upload', type: :submit, data: { disable_with: 'Loading...' }, class: 'btn btn-primary'
         = form_for current_user, html: { class: 'form' } do |f|
           .form-group
-            = f.label :test_file, "Test file#{' currently: ' + current_user.test_file.name if current_user.test_file_stored?}"
+            = f.label :test_file, "Solution file#{' currently: ' + current_user.test_file.name if current_user.test_file_stored?}"
             .well
               %p
                 The
-                %strong test file's
-                name should start with Test and it should contain your name. For example:
-                %code TestAze.java
-                Your test file must not contain any
+                %strong cuboid file's
+                should be named as
+                %code Cuboid.java
+                with the
+                %code Cuboid
+                class inside. Your solution file must not contain any
                 %code package
                 at the top (eg. package com.greenfox.aze;).
               .input-group
@@ -53,7 +55,7 @@
             Do my results
           - if current_user.running_tests
             - if current_user.last_runned
-              = link_to "reports/#{current_user.uid}/index.html", class: 'btn btn-primary btn-block' do
+              = link_to "reports/#{current_user.uid}/index.html", class: 'btn btn-primary btn-block', target: '_blank' do
                 = fa_icon 'tasks'
                 Get me my results from
                 = timeago_tag current_user.last_runned

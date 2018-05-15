@@ -21,8 +21,9 @@ class User < ApplicationRecord
   private
 
   def files
-    errors.add(:solution_file, 'should be named as WordToolbox.java') if solution_file_name && solution_file_name != 'WordToolbox.java'
-    errors.add(:test_file, 'should be named as Test*.java') if test_file_name && test_file_name.match(/\ATest[a-zA-Z]+.java\z/).nil?
+    errors.add(:solution_file, 'should be named as CountAs.java') if solution_file_name && solution_file_name != 'CountAs.java'
+    errors.add(:test_file, 'should be named as Cuboid.java') if test_file_name && test_file_name != 'Cuboid.java'
+    # errors.add(:test_file, 'should be named as Cuboid.java') if test_file_name && test_file_name.match(/\ATest[a-zA-Z]+.java\z/).nil?
   end
 
 end
